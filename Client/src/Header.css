@@ -2,7 +2,7 @@
    Theme Variables
    ========================= */
 :root {
-  --color-dark: #282c34;
+  --color-dark: #2874f0;
   --color-light: #ffffff;
   --color-accent: #61dafb;
   --color-gold: #ffd700;
@@ -35,6 +35,9 @@ body {
   color: var(--color-light);
   padding: 0 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0px;
+  width: 100vw;
 }
 
 .navbar-container {
@@ -92,6 +95,9 @@ body {
   font-size: 1rem;
   background-color: #3a3f47;
   color: var(--color-light);
+
+  background-color: #ffffff !important; /* White inside */
+  color: #000000;
 }
 
 .search-input::placeholder {
@@ -102,7 +108,7 @@ body {
   position: absolute;
   right: 0;
   top: 0;
-  bottom: 0;
+  bottom: -1rem;
   background: none;
   border: none;
   padding: 0 12px;
@@ -138,6 +144,9 @@ body {
   align-items: center;
   cursor: pointer;
   transition: color 0.2s ease-in-out;
+
+  background-color: #2874f0;
+  color: #ffffff !important;
 }
 
 .nav-item:hover,
