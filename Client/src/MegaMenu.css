@@ -1,0 +1,74 @@
+/* This positions the mega menu correctly below the category bar. */
+.mega-menu-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1000; /* Ensures the menu appears on top of other content */
+}
+
+/* This is the main dropdown panel. */
+.mega-menu {
+  display: flex;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 600px; /* Adjust width as needed */
+  color: #333;
+}
+
+/* Styles for each column in the menu. */
+.menu-column {
+  padding: 20px;
+  min-width: 200px; /* Ensures columns have a minimum width */
+}
+
+.menu-column:first-child {
+  background-color: #f9f9f9; /* Lighter background for the main sub-categories */
+  border-right: 1px solid #e0e0e0;
+}
+
+.menu-column h4 {
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #878787;
+}
+
+.menu-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-column ul li {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Style for the active/hovered sub-category. */
+.menu-column ul li.active {
+  background-color: #fff;
+  font-weight: 600;
+  color: #2874f0; /* Flipkart Blue */
+}
+
+.menu-column ul li:hover {
+  background-color: #f0f0f0;
+}
+
+.menu-column ul li.active:hover {
+  background-color: #fff;
+}
+
+.arrow {
+  display: none;
+}
+
+.menu-column ul li.active .arrow {
+  display: inline;
+}
