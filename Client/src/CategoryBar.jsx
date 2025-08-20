@@ -4,39 +4,39 @@ export default function CategoryBar() {
   return (
     <div className="category-bar">
       <div className="category-item">
-        <img src="minutes.png" alt="Minutes" />
+        <img src="/src/assets/minutes.webp" alt="Minutes" />
         <span>Minutes</span>
       </div>
       <div className="category-item">
-        <img src="mobiles.png" alt="Mobiles & Tablets" />
+        <img src="/src/assets/mobiles.png" alt="Mobiles & Tablets" />
         <span>Mobiles & Tablets</span>
       </div>
       <div className="category-item">
-        <img src="fashion.png" alt="Fashion" />
+        <img src="/src/assets/Fashion.webp" alt="Fashion" />
         <span>Fashion</span>
       </div>
       <div className="category-item">
-        <img src="electronics.png" alt="Electronics" />
+        <img src="/src/assets/Electronics.webp" alt="Electronics" />
         <span>Electronics</span>
       </div>
       <div className="category-item">
-        <img src="furniture.png" alt="Home & Furniture" />
+        <img src="/src//assets/Home&Furniture.jpg" alt="Home & Furniture" />
         <span>Home & Furniture</span>
       </div>
       <div className="category-item">
-        <img src="tv.png" alt="TVs & Appliances" />
+        <img src="/src/assets/Tv&Appliances.jpg" alt="TVs & Appliances" />
         <span>TVs & Appliances</span>
       </div>
       <div className="category-item">
-        <img src="flight.png" alt="Flight Bookings" />
+        <img src="/src/assets/Flight Booking.png" alt="Flight Bookings" />
         <span>Flight Bookings</span>
       </div>
       <div className="category-item">
-        <img src="beauty.png" alt="Beauty, Food" />
+        <img src="/src/assets/Beauty.png" alt="Beauty, Food" />
         <span>Beauty, Food..</span>
       </div>
       <div className="category-item">
-        <img src="grocery.png" alt="Grocery" />
+        <img src="/src/assets/Grocery.png" alt="Grocery" />
         <span>Grocery</span>
       </div>
     </div>
