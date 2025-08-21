@@ -4,7 +4,8 @@ import Header from "./Header.jsx";
 import CategoryBar from "./CategoryBar.jsx";
 import Footer from "./Footer.jsx";
 import MegaMenu from "./MegaMenu.jsx";
-import "./MegaMenu.css"; // Import the new CSS here
+import "./MegaMenu.css";
+import BeautyFoodToys from "./BeautyFoodToys.jsx";
 
 function App() {
   // This state will track which category is being hovered over.
@@ -25,6 +26,7 @@ function App() {
           <div className="mega-menu-container">
             <MegaMenu activeCategory={activeCategory} />
           </div>
+          <BeautyFoodToys />
         </div>
         {/* All other page content like products will go inside this main tag */}
       </main>
