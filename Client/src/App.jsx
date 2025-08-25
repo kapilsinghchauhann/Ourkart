@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import "./App.css";
 import Header from "./Header.jsx";
 import CategoryBar from "./CategoryBar.jsx";
+import Component2 from "./Component2.jsx";
 import Footer from "./Footer.jsx";
 import MegaMenu from "./MegaMenu.jsx";
 import "./MegaMenu.css";
 import BeautyFoodToys from "./BeautyFoodToys.jsx";
+import ProductGrid from "./ProductGrid.jsx";
 
 function App() {
   // This state will track which category is being hovered over.
@@ -20,6 +22,7 @@ function App() {
     <div className="app-container">
       <Header />
       <main className="main-content">
+        <Component2 />
         {/* Pass the hover handler to the CategoryBar */}
         <div onMouseLeave={() => setActiveCategory(null)}>
           <CategoryBar onCategoryHover={handleCategoryHover} />
@@ -27,6 +30,7 @@ function App() {
             <MegaMenu activeCategory={activeCategory} />
           </div>
           <BeautyFoodToys />
+          <ProductGrid />
         </div>
         {/* All other page content like products will go inside this main tag */}
       </main>

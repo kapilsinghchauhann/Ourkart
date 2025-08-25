@@ -1,41 +1,37 @@
 import React from "react";
 import "./BeautyFoodToys.css";
 
+// import actionToysImage from "ClientpublicBestofaction.jpeg";
+
 // Product data is stored in an array of objects for easy management.
 const products = [
   {
-    imgSrc:
-      "https://rukminim1.flixcart.com/image/200/200/xif0q/action-figure/l/2/r/6-batman-dark-knight-dc-comics-super-hero-pvc-action-figure-original-imagg92chxzhp9v2.jpeg?q=70",
+    imgSrc: "Bestofaction.jpeg",
     description: "Best of Action Toys",
     offer: "Up to 70% Off",
   },
   {
-    imgSrc:
-      "https://rukminim1.flixcart.com/image/200/200/xif0q/remote-control-toy/g/y/y/crawling-remote-control-rock-crawler-rc-monster-truck-4-wheel-original-imagz2h6k6ztbzex.jpeg?q=70",
+    imgSrc: "Remotecontrol.jpeg",
     description: "Remote Control Toys",
     offer: "Up to 80% Off",
   },
   {
-    imgSrc:
-      "https://rukminim1.flixcart.com/image/200/200/l3dcl8w0/pencil/h/i/p/srx-gold-10-pencils-1-eraser-1-sharpener-flair-original-imageg4k9g9jgbzy.jpeg?q=70",
+    imgSrc: "Topsellingstationary.jpeg",
     description: "Top Selling Stationery",
     offer: "From ₹49",
   },
   {
-    imgSrc:
-      "https://rukminim1.flixcart.com/image/200/200/kz5vjbk0/stuffed-toy/q/r/q/for-someone-special-best-gift-for-girlfriend-and-boyfriend-90-original-imagb8g3vfwje7h2.jpeg?q=70",
+    imgSrc: "Softtoys.jpeg",
     description: "Soft Toys",
     offer: "Upto 70% Off",
   },
   {
-    imgSrc:
-      "https://rukminim1.flixcart.com/image/200/200/xif0q/nut-dry-fruit/p/z/m/-original-imaghz7gqgthsr2u.jpeg?q=70",
+    imgSrc: "Dryfruits.jpeg",
     description: "Dry Fruits",
     offer: "Upto 75% Off",
   },
   {
-    imgSrc:
-      "https://rukminim1.flixcart.com/image/200/200/xif0q/cycle/s/k/i/beast-26t-with-front-suspension-dual-disc-brake-26-east-man-original-imaghq27fmekaxmp.jpeg?q=70",
+    imgSrc: "Gearedcycle.jpeg",
     description: "Geared Cycles",
     offer: "Up to 70% Off",
   },

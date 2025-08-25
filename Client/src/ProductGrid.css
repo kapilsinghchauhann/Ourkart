@@ -1,0 +1,98 @@
+/* Main container for all grid sections */
+.product-grid-container {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background-color: #f1f3f6;
+  overflow-x: auto;
+}
+
+/* Individual section (e.g., "Monsoon Ready Styles") */
+.product-grid-section {
+  flex: 1;
+  min-width: 320px;
+  background-color: #ffffff;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+/* Header within each section */
+.product-grid-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 12px;
+}
+
+.product-grid-header h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.grid-nav-button {
+  background-color: #2874f0;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The 2x2 grid for product cards */
+.product-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* Individual product card */
+.grid-product-card {
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  /* Use flexbox to better control content */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the top */
+}
+
+.grid-product-card:hover {
+  transform: scale(1.03);
+  transition: transform 0.2s ease-in-out;
+}
+
+.grid-product-image {
+  /* REMOVED fixed height to allow the card to be flexible */
+  margin-bottom: 8px;
+}
+
+.grid-product-image img {
+  max-width: 100%;
+  max-height: 120px; /* Control max image height but not container height */
+}
+
+.product-name {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 4px 0;
+  /* These properties ensure the text wraps correctly */
+  word-wrap: break-word;
+  white-space: normal;
+  flex-grow: 1; /* Allows this element to take up space, pushing offer down */
+}
+
+.product-offer-text {
+  font-size: 14px;
+  color: #388e3c;
+  margin: 0;
+}
