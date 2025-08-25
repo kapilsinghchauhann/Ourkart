@@ -6,32 +6,32 @@ import "./BeautyFoodToys.css";
 // Product data is stored in an array of objects for easy management.
 const products = [
   {
-    imgSrc: "Bestofaction.jpeg",
+    imgSrc: "/Bestofaction.jpeg",
     description: "Best of Action Toys",
     offer: "Up to 70% Off",
   },
   {
-    imgSrc: "Remotecontrol.jpeg",
+    imgSrc: "/Remotecontrol.jpeg",
     description: "Remote Control Toys",
     offer: "Up to 80% Off",
   },
   {
-    imgSrc: "Topsellingstationary.jpeg",
+    imgSrc: "/Topsellingstationary.jpeg",
     description: "Top Selling Stationery",
     offer: "From ₹49",
   },
   {
-    imgSrc: "Softtoys.jpeg",
+    imgSrc: "/Softtoys.jpeg",
     description: "Soft Toys",
     offer: "Upto 70% Off",
   },
   {
-    imgSrc: "Dryfruits.jpeg",
+    imgSrc: "/Dryfruits.jpeg",
     description: "Dry Fruits",
     offer: "Upto 75% Off",
   },
   {
-    imgSrc: "Gearedcycle.jpeg",
+    imgSrc: "/Gearedcycle.jpeg",
     description: "Geared Cycles",
     offer: "Up to 70% Off",
   },
