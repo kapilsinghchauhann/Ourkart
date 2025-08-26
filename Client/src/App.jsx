@@ -8,6 +8,7 @@ import "./MegaMenu.css";
 import Component2 from "./Component2.jsx";
 import BestElectronic from "./BestElectronic.jsx";
 import BeautyFoodToys from "./BeautyFoodToys.jsx";
+import Sportshealth from "./Sportshealth.jsx";
 import ProductGrid from "./ProductGrid.jsx";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Component2 />
           <BestElectronic />
           <BeautyFoodToys />
+          <Sportshealth />
           <ProductGrid />
         </div>
         {/* All other page content like products will go inside this main tag */}
