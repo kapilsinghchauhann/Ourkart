@@ -112,7 +112,7 @@ function Footer() {
             {/* Link to your Facebook page */}
             <a href="#">
               <img
-                src="/path/to/your/facebook-icon.svg"
+                src="facebook.svg"
                 alt="Facebook Logo"
                 width="24"
                 height="24"
@@ -120,18 +120,13 @@ function Footer() {
             </a>
             {/* Link to your X (Twitter) page */}
             <a href="#">
-              <img
-                src="/path/to/your/x-icon.svg"
-                alt="X Logo"
-                width="24"
-                height="24"
-              />
+              <img src="twitter.svg" alt="X Logo" width="24" height="24" />
             </a>
             {/* Link to your YouTube page */}
             <a href="#">
               <img
-                src="/path/to/your/youtube-icon.svg"
-                alt="YouTube Logo"
+                src="linkedin.svg"
+                alt="LinkedIn Logo"
                 width="24"
                 height="24"
               />
@@ -139,7 +134,7 @@ function Footer() {
             {/* Link to your Instagram page */}
             <a href="#">
               <img
-                src="/path/to/your/instagram-icon.svg"
+                src="instagram.svg"
                 alt="Instagram Logo"
                 width="24"
                 height="24"
