@@ -97,18 +97,16 @@ const ProductGrid = () => {
       {gridData.map((section, index) => (
         <div className="product-grid-section" key={index}>
           <div className="product-grid-header">
-            {/* The title attribute has been removed */}
-            <h2>{section.title}</h2>
+            <h1>{section.title}</h1>
             <button className="grid-nav-button">&gt;</button>
           </div>
           <div className="product-card-grid">
             {section.products.map((product, pIndex) => (
-              // The title attribute has been removed from the link as well
               <a href={product.link} className="grid-product-card" key={pIndex}>
                 <div className="grid-product-image">
                   <img src={product.imgSrc} alt={product.name} />
                 </div>
-                <p className="product-name">{product.name}</p>
+                <h2>{product.name}</h2>
                 <p className="product-offer-text">{product.offer}</p>
               </a>
             ))}

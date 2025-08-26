@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "./App.css";
 import Header from "./Header.jsx";
 import CategoryBar from "./CategoryBar.jsx";
-import Component2 from "./Component2.jsx";
 import Footer from "./Footer.jsx";
 import MegaMenu from "./MegaMenu.jsx";
 import "./MegaMenu.css";
+import Component2 from "./Component2.jsx";
+import BestElectronic from "./BestElectronic.jsx";
 import BeautyFoodToys from "./BeautyFoodToys.jsx";
 import ProductGrid from "./ProductGrid.jsx";
 
@@ -22,13 +23,14 @@ function App() {
     <div className="app-container">
       <Header />
       <main className="main-content">
-        <Component2 />
         {/* Pass the hover handler to the CategoryBar */}
         <div onMouseLeave={() => setActiveCategory(null)}>
           <CategoryBar onCategoryHover={handleCategoryHover} />
           <div className="mega-menu-container">
             <MegaMenu activeCategory={activeCategory} />
           </div>
+          <Component2 />
+          <BestElectronic />
           <BeautyFoodToys />
           <ProductGrid />
         </div>

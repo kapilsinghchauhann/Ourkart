@@ -11,7 +11,7 @@
 .product-grid-section {
   flex: 1;
   min-width: 320px;
-  background-color: #ffffff;
+  background-color: #260808;
   padding: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
@@ -23,12 +23,12 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #a34e4e;
   padding-bottom: 12px;
 }
 
-.product-grid-header h2 {
-  font-size: 20px;
+.product-grid-header h1 {
+  font-size: 22px;
   font-weight: 500;
   margin: 0;
 }
@@ -81,7 +81,7 @@
   max-height: 120px; /* Control max image height but not container height */
 }
 
-.product-name {
+.grid-product-card h2 {
   font-size: 14px;
   font-weight: 500;
   margin: 4px 0;
