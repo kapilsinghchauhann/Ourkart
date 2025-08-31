@@ -23,7 +23,7 @@ export default function Header() {
           {/* Right Nav */}
           <div className="nav-links">
             <a href="#" className="nav-link"><LoginIcon /> <span>Login</span></a>
-            <a href="#" className="nav-link"><CartIcon /> <span>Cart</span></a>
+            <Link to="/Cart" className="nav-link"><CartIcon /> <span>Cart</span></Link>
             <button className="nav-link nav-more"><MoreIcon /></button>
             <Link to="/" className="nav-special"><BackArrowIcon /> <span>FLIPKART</span></Link>
           </div>

@@ -171,7 +171,7 @@ function Footer() {
         </div>
       </div>
 
-      <div className="lower">
+      <div className="lower bg-black-500">
         <p>Become a seller</p>
         <p>Advertise</p>
         <p>Gift Card</p>

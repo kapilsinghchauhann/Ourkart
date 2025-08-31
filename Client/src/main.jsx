@@ -5,11 +5,13 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MinutesPage from "./MinutesPage/MinutesPage.jsx";
 import ErrorPage from "./ErroePage/ErrorPage.jsx";
+import Cart from "./MinutesPage/Cart/Cart.jsx";
 
 const router = createBrowserRouter([
   {path:"/", element:<App/>},
   {path:"*", element:<ErrorPage/>},
   {path:"/MinutesPage", element:<MinutesPage/>},
+  {path:"/Cart", element:<Cart/>},
 ]);
 
 createRoot(document.getElementById("root")).render(
