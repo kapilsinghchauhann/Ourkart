@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import "./App.css";
-import Header from "./Header.jsx";
-import CategoryBar from "./CategoryBar.jsx";
-import Footer from "./Footer.jsx";
-import MegaMenu from "./MegaMenu.jsx";
-import "./MegaMenu.css";
-import Component2 from "./Component2.jsx";
-import BestElectronic from "./BestElectronic.jsx";
-import BeautyFoodToys from "./BeautyFoodToys.jsx";
-import Sportshealth from "./Sportshealth.jsx";
-import ProductGrid from "./ProductGrid.jsx";
+import Header from "./Components/Header/Header.jsx";
+import CategoryBar from "./Home/CategoryBar/CategoryBar.jsx";
+import Footer from "./Components/Footer/Footer.jsx";
+import MegaMenu from "./Home/MegaMenu/MegaMenu.jsx";
+import Component2 from "./Home/Component2/Component2.jsx";
+import BestElectronic from "./Home/BestElectronic/BestElectronic.jsx";
+import BeautyFoodToys from "./Home/BeautyFoodToys/BeautyFoodToys.jsx";
+import Sportshealth from "./Home/SportsHealth/Sportshealth.jsx";
+import ProductGrid from "./Home/ProductGrid/ProductGrid.jsx";
 
 function App() {
   // This state will track which category is being hovered over.

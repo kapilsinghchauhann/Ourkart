@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./MegaMenu.css";
-import { menuData } from "./menuData";
+import { menuData } from "./MenuData";
 
 // The MegaMenu component receives the active category from its parent
 // and displays the corresponding menu items.
