@@ -1,0 +1,72 @@
+.img img {
+    border-radius: 26px;
+}
+
+.maina {
+    margin: 20px 0px 0px;
+}
+
+.carousel {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    gap: 2em;
+    margin: auto;
+    scroll-behavior: smooth;
+    anchor-name: --carousel;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel::scroll-button(right) {
+    content: '→';
+    border: none;
+    background-color: rgb(42, 42, 150);
+    font-family: Consolas;
+    font-size: 3rem;
+    color: aliceblue;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    padding-bottom: .1em;
+    cursor: pointer;
+    position-anchor: --carousel;
+    position: fixed;
+    position-area: right center;
+    translate: -50%;
+}
+
+.carousel::scroll-button(left) {
+    content: '← ';
+    border: none;
+    background-color: rgb(42, 42, 150);
+    font-family: Consolas;
+    font-size: 3rem;
+    color: aliceblue;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    padding-bottom: .1em;
+    cursor: pointer;
+    position-anchor: --carousel;
+    position: fixed;
+    position-area: left center;
+    translate: 50%;
+}
+
+.carousel::scroll-button(right):disabled,
+.carousel::scroll-button(left):disabled {
+    opacity: 0.0;
+    cursor: auto;
+}
+
+.card {
+    width: 27em;
+}
+
+.card img {
+    border-radius: 25px;
+}
