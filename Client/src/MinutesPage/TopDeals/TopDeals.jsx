@@ -3,6 +3,7 @@ import './TopDeals.css'
 
 function TopDeals() {
     const [product, setProduct] = useState(null);
+    const [quantity, setQuantity] = useState(0);
 
     async function GetProduct() {
         const url = "https://fakestoreapi.com/products?limit=5";
@@ -17,27 +18,41 @@ function TopDeals() {
     }, []);
 
     return (
-        <div>
+        <div className='heading'>
             <h1>Top Deals you cant miss!!</h1>
-            {product ? (
+            <div className='uppermain'>
+                {product ? (
+                    product.map(product => (
+                        <div className='mainab'>
+                            <img src={product.image} alt="product image" />
 
-                product.map(product => (
-                    <div>
-                        <div className="upper">
-                            <img src={product.image} alt="" />
-                            <div className="rating"></div>
+                            {quantity === 0 ? (
+                                <button className="add-btn" onClick={() => setQuantity(1)}>
+                                    +
+                                </button>
+                            ) : (
+                                <div className="quantity-control">
+                                    <button onClick={() => setQuantity(quantity - 1)}>-</button>
+                                    <span>{quantity}</span>
+                                    <button onClick={() => setQuantity(quantity + 1)}>+</button>
+                                </div>
+                            )}
+
+                            <div className="upperab">
+                                <p>{product.rating.rate} ★</p>
+                            </div>
+                            <div className="lowerab">
+                                <h4>{product.title}</h4>
+                                <p>{product.price}</p>
+                            </div>
                         </div>
-                        <div className="lower">
-                            <h1>title</h1>
-                            <p>price</p>
-                        </div>
-                    </div>
-                ))
+                    ))
 
 
-            ) : (
-                <p>Loading...</p>
-            )}
+                ) : (
+                    <p>Loading...</p>
+                )}
+            </div>
         </div>
     )
 }
