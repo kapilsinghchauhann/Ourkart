@@ -1,123 +1,122 @@
 .heading {
-    text-align: left;
-    margin: 1rem 2rem;
+  text-align: left;
+  margin: 1rem 2rem;
 }
 
 .heading h1 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #212121;
-    margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212121;
+  margin-bottom: 1rem;
 }
 
 .uppermain {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 1.2rem;
-    padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.2rem;
+  padding: 1rem 2rem;
 }
 
 .mainab {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 0.8rem;
-    transition: box-shadow 0.2s ease;
-    position: relative;
-    cursor: pointer;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.8rem;
+  transition: box-shadow 0.2s ease;
+  position: relative;
+  cursor: pointer;
 }
 
 .mainab:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .mainab img {
-    width: 100%;
-    height: 160px;
-    object-fit: contain;
-    margin-bottom: 0.6rem;
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 0.6rem;
 }
 
 .upperab {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.4rem;
 }
 
 .upperab p {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #fff;
-    background-color: #388e3c;
-    /* green rating bg */
-    padding: 2px 6px;
-    border-radius: 4px;
-    display: inline-flex;
-    align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #388e3c;
+  /* green rating bg */
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .lowerab h4 {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: #212121;
-    margin: 0.4rem 0;
-    line-height: 1.2;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    /* max 2 lines */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #212121;
+  margin: 0.4rem 0;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* max 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-
 .lowerab p {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #000;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #000;
 }
 
 /* Extra details for discount look */
 .price-container {
-    display: flex;
-    flex-direction: column;
-    font-size: 0.8rem;
-    margin-top: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
 }
 
 .price-container .discount {
-    color: #388e3c;
-    font-weight: 600;
+  color: #388e3c;
+  font-weight: 600;
 }
 
 .price-container .old-price {
-    color: #878787;
-    text-decoration: line-through;
-    margin-right: 5px;
+  color: #878787;
+  text-decoration: line-through;
+  margin-right: 5px;
 }
 
 .price-container .new-price {
-    font-weight: 600;
-    color: #212121;
+  font-weight: 600;
+  color: #212121;
 }
 
 /* + button like Flipkart */
 .add-btn {
-    position: absolute;
-    /* bottom: 10px; */
-    right: 10px;
-    border: 1px solid #e0e0e0;
-    background: #fff;
-    color: #212121;
-    border-radius: 6px;
-    font-size: 1.2rem;
-    line-height: 1;
-    padding: 0.2rem 0.6rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  position: absolute;
+  /* bottom: 10px; */
+  right: 10px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  color: #212121;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .add-btn:hover {
-    background: #f5f5f5;
+  background: #f5f5f5;
 }
 
 .quantity-control {
@@ -140,7 +139,7 @@
   font-size: 1rem;
   font-weight: bold;
   color: #000000;
-  width: 24px;   /* enough space for + and - */
+  width: 24px; /* enough space for + and - */
   height: 24px;
   /* border-radius: 50%; */
   /* cursor: pointer; */

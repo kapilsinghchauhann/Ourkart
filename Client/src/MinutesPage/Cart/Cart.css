@@ -15,7 +15,7 @@
 }
 
 .empty-cart-title {
-    color: black;
+  color: black;
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
@@ -40,4 +40,28 @@
 
 .empty-cart-btn:hover {
   background-color: #1e40af;
+}
+
+.cart-container {
+  padding: 2rem;
+  color: black;
+}
+
+.cart-item {
+  display: flex;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 1rem;
+}
+
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-right: 1rem;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
 }
