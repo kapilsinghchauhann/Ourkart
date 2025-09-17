@@ -1,65 +1,60 @@
 import { useEffect, useState } from "react";
 import "./TopDeals.css";
+import { useCart } from "../../CartContext";
 
-function TopDeals({ handleAddToCart, handleRemoveFromCart, cartItems }) {
-  const [products, setProducts] = useState(null);
-
-  async function GetProduct() {
-    const url = "https://fakestoreapi.com/products?limit=5";
-    let resp = await fetch(url);
-    let data = await resp.json();
-    setProducts(data);
-  }
+function TopDeals() {
+  const [products, setProducts] = useState([]);
+  const { cartItems, addToCart, removeFromCart } = useCart();
 
   useEffect(() => {
-    GetProduct();
+    const getProducts = async () => {
+      const resp = await fetch("https://fakestoreapi.com/products?limit=5");
+      const data = await resp.json();
+      setProducts(data);
+    };
+    getProducts();
   }, []);
 
   const getProductQuantity = (productId) => {
-    const productInCart = cartItems.find((item) => item.id === productId);
-    return productInCart ? productInCart.quantity : 0;
+    const item = cartItems.find((p) => p.id === productId);
+    return item ? item.quantity : 0;
   };
 
   return (
     <div className="heading">
-      <h1>Top Deals you cant miss!!</h1>
+      <h1>Top Deals you can't miss!!</h1>
       <div className="uppermain">
-        {products ? (
+        {products.length > 0 ? (
           products.map((product) => {
             const quantity = getProductQuantity(product.id);
             return (
               <div className="mainab" key={product.id}>
-                <img src={product.image} alt="product image" />
+                <img src={product.image} alt={product.title} />
 
                 {quantity === 0 ? (
-                  <button
-                    className="add-btn"
-                    onClick={() => handleAddToCart(product)}
-                  >
+                  <button className="add-btn" onClick={() => addToCart(product)}>
                     +
                   </button>
                 ) : (
                   <div className="quantity-control">
-                    <button onClick={() => handleRemoveFromCart(product)}>
-                      -
-                    </button>
+                    <button onClick={() => removeFromCart(product)}>-</button>
                     <span>{quantity}</span>
-                    <button onClick={() => handleAddToCart(product)}>+</button>
+                    <button onClick={() => addToCart(product)}>+</button>
                   </div>
                 )}
 
                 <div className="upperab">
-                  <p>{product.rating.rate} ★</p>
+                  <p>{product.rating?.rate} ★</p>
                 </div>
                 <div className="lowerab">
                   <h4>{product.title}</h4>
-                  <p>{product.price}</p>
+                  <p>${product.price}</p>
                 </div>
               </div>
             );
           })
         ) : (
-          <p>Loading...</p>
+          <p>Loading…</p>
         )}
       </div>
     </div>

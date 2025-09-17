@@ -1,20 +1,21 @@
 import Header from "../Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import "./Cart.css";
-import { Link, useLocation } from "react-router-dom";
+import { useCart } from "../../CartContext";   // 👈 import the hook
+import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const location = useLocation();
-  const { cartItems } = location.state || { cartItems: [] };
+  const { cartItems } = useCart();  // 👈 get cartItems from context
 
   return (
     <div>
       <Header />
+
       {cartItems.length === 0 ? (
         <div className="empty-cart">
           <div className="empty-cart-image">
             <img
-              src="src\MinutesPage\5d6b5ae2-7337-4b83-a884-5a0e9022ac93.webp"
+              src="src/MinutesPage/5d6b5ae2-7337-4b83-a884-5a0e9022ac93.webp"
               alt="Empty basket"
             />
           </div>
@@ -39,6 +40,7 @@ const Cart = () => {
               </div>
             </div>
           ))}
+
           <div className="cart-summary">
             <h3>
               Total: $
@@ -49,6 +51,7 @@ const Cart = () => {
           </div>
         </div>
       )}
+
       <Footer />
     </div>
   );
