@@ -93,6 +93,19 @@
   text-decoration: none;
   color: white;
   transition: color 0.2s ease;
+    position: relative;
+  /* display: inline-block; */
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
 }
 
 .nav-link:hover {

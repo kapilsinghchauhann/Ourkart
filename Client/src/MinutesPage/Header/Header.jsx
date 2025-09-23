@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
+import { useCart } from "../../CartContext";
 
-export default function Header({ cartCount, cartItems }) {
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { cartItems } = useCart(); // ✅ only from context
+
+  // 👇 calculate total quantity
+  const totalQuantity = cartItems.reduce(
+    (sum, item) => sum + item.quantity,
+    0
+  );
 
   return (
     <header className="header">
@@ -12,7 +20,7 @@ export default function Header({ cartCount, cartItems }) {
           {/* Logo */}
           <Link to="/MinutesPage" className="logo">
             <img
-              src="src\MinutesPage\fkheaderlogo_minutes_desktop-bc73ae.svg"
+              src="src/MinutesPage/fkheaderlogo_minutes_desktop-bc73ae.svg"
               alt="LOGO"
             />
           </Link>
@@ -27,18 +35,18 @@ export default function Header({ cartCount, cartItems }) {
 
           {/* Right Nav */}
           <div className="nav-links">
-            <a href="#" className="nav-link">
+            <Link to="/Login" className="nav-link">
               <LoginIcon /> <span>Login</span>
-            </a>
-            <Link
-              to="/Cart"
-              state={{ cartItems: cartItems }}
-              className="nav-link"
-            >
+            </Link>
+
+            <Link to="/Cart" className="nav-link">
               <CartIcon />
               <span>Cart</span>
-              {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+              {totalQuantity > 0 && (
+                <span className="cart-badge">{totalQuantity}</span>
+              )}
             </Link>
+
             <button className="nav-link nav-more">
               <MoreIcon />
             </button>
@@ -67,21 +75,25 @@ export default function Header({ cartCount, cartItems }) {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="mobile-menu">
-            <a href="#" className="mobile-link">
+            <Link to="/Login" className="mobile-link">
               <LoginIcon /> <span>Login</span>
-            </a>
-            <a href="#" className="mobile-link">
+            </Link>
+            <Link to="/Cart" className="mobile-link">
               <CartIcon /> <span>Cart</span>
-            </a>
-            <a href="#" className="mobile-link">
+              {totalQuantity > 0 && (
+                <span className="cart-badge">{totalQuantity}</span>
+              )}
+            </Link>
+            <Link to="/" className="mobile-link">
               <BackArrowIcon /> <span>Back to FLIPKART</span>
-            </a>
+            </Link>
           </div>
         )}
       </nav>
     </header>
   );
 }
+
 // SVG Icon Components (remain the same)
 
 // SVG Icon Components

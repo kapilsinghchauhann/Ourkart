@@ -8,7 +8,7 @@ function TopDeals() {
 
   useEffect(() => {
     const getProducts = async () => {
-      const resp = await fetch("https://fakestoreapi.com/products?limit=5");
+      const resp = await fetch("https://fakestoreapi.com/products?limit=8");
       const data = await resp.json();
       setProducts(data);
     };
