@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
+import { useCart } from "../../CartContext";
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -8,14 +9,44 @@ export default function Login() {
     password: "",
   });
 
+    const navigate = useNavigate();
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   console.log("Login data:", formData);
+  //   // Add your authentication logic here
+  // };
+
+    const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login data:", formData);
-    // Add your authentication logic here
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/login", { // make sure path matches backend
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        // Save token + userId for later use
+        localStorage.setItem("userId", data.userId);
+        alert("Signup successful !");
+        setIsLoggedIn(true);
+        localStorage.setItem('token', data.token); // Save token in localStorage
+        console.log(isLoggedIn);
+        
+        // Redirect to Minutes page
+        navigate("/MinutesPage");
+      } else {
+        alert(data.error);
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (

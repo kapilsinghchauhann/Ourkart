@@ -5,7 +5,7 @@ import { useCart } from "../../CartContext";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { cartItems } = useCart(); // ✅ only from context
+  const { cartItems, isLoggedIn, handleLogout} = useCart(); // ✅ only from context
 
   // 👇 calculate total quantity
   const totalQuantity = cartItems.reduce(
@@ -35,60 +35,70 @@ export default function Header() {
 
           {/* Right Nav */}
           <div className="nav-links">
-            <Link to="/Login" className="nav-link">
+            {/* <Link to="/Login" className="nav-link">
               <LoginIcon /> <span>Login</span>
-            </Link>
+            </Link> */}
 
-            <Link to="/Cart" className="nav-link">
-              <CartIcon />
-              <span>Cart</span>
-              {totalQuantity > 0 && (
-                <span className="cart-badge">{totalQuantity}</span>
+              {isLoggedIn ? (
+                <button className="mobile-link" onClick={handleLogout}>
+                  <LoginIcon /> <span>Logout</span>
+                </button>
+              ) : (
+                <Link to="/Login" className="mobile-link">
+                  <LoginIcon /> <span>Login</span>
+                </Link>
               )}
-            </Link>
 
-            <button className="nav-link nav-more">
-              <MoreIcon />
+              <Link to="/Cart" className="nav-link">
+                <CartIcon />
+                <span>Cart</span>
+                {totalQuantity > 0 && (
+                  <span className="cart-badge">{totalQuantity}</span>
+                )}
+              </Link>
+
+              <button className="nav-link nav-more">
+                <MoreIcon />
+              </button>
+              <Link to="/" className="nav-special">
+                <BackArrowIcon /> <span>FLIPKART</span>
+              </Link>
+            </div>
+
+            {/* Mobile Button */}
+            <button
+              className="menu-button"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
-            <Link to="/" className="nav-special">
-              <BackArrowIcon /> <span>FLIPKART</span>
-            </Link>
           </div>
 
-          {/* Mobile Button */}
-          <button
-            className="menu-button"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
-          </button>
-        </div>
-
-        {/* Mobile Search */}
-        <div className="mobile-search">
-          <span className="search-icon">
-            <SearchIcon />
-          </span>
-          <input type="text" placeholder="Search..." />
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="mobile-menu">
-            <Link to="/Login" className="mobile-link">
-              <LoginIcon /> <span>Login</span>
-            </Link>
-            <Link to="/Cart" className="mobile-link">
-              <CartIcon /> <span>Cart</span>
-              {totalQuantity > 0 && (
-                <span className="cart-badge">{totalQuantity}</span>
-              )}
-            </Link>
-            <Link to="/" className="mobile-link">
-              <BackArrowIcon /> <span>Back to FLIPKART</span>
-            </Link>
+          {/* Mobile Search */}
+          <div className="mobile-search">
+            <span className="search-icon">
+              <SearchIcon />
+            </span>
+            <input type="text" placeholder="Search..." />
           </div>
-        )}
+
+          {/* Mobile Menu */}
+          {isMenuOpen && (
+            <div className="mobile-menu">
+              <Link to="/Login" className="mobile-link">
+                <LoginIcon /> <span>Login</span>
+              </Link>
+              <Link to="/Cart" className="mobile-link">
+                <CartIcon /> <span>Cart</span>
+                {totalQuantity > 0 && (
+                  <span className="cart-badge">{totalQuantity}</span>
+                )}
+              </Link>
+              <Link to="/" className="mobile-link">
+                <BackArrowIcon /> <span>Back to FLIPKART</span>
+              </Link>
+            </div>
+          )}
       </nav>
     </header>
   );

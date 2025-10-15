@@ -38,6 +38,7 @@
   font-size: 0.95rem;
   outline: none;
   transition: border 0.2s;
+  color: #000000;
 }
 
 .signup-form input:focus {
@@ -64,7 +65,7 @@
   text-align: center;
   margin-top: 1rem;
   font-size: 0.9rem;
-  color: #666;
+  color: #000000;
 }
 
 .login-text a {

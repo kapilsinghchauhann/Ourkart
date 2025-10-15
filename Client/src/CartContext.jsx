@@ -1,9 +1,23 @@
 import { createContext, useContext, useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+    const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('token'); // Clear token from localStorage
+  };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      localStorage.setItem("token", localStorage.getItem("token") || "");
+    }
+  }, [isLoggedIn]);
 
   const addToCart = (product) => {
     setCartItems((prev) => {
@@ -32,7 +46,7 @@ export function CartProvider({ children }) {
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, isLoggedIn, setIsLoggedIn, handleLogout}}>
       {children}
     </CartContext.Provider>
   );

@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Signup.css";
 import { Link } from "react-router-dom";
+import { useCart } from "../../CartContext";
 
 export default function Signup() {
+
+  const { setIsLoggedIn } = useCart();
+
   const [formData, setFormData] = useState({
     name: "",
     number: "",
@@ -10,14 +15,42 @@ export default function Signup() {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("Signup data:", formData);
+  //   // Add your API call or backend integration here
+  // };
+
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Signup data:", formData);
-    // Add your API call or backend integration here
+    try {
+      const res = await fetch("http://localhost:5000/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        alert("Signup successful !");
+        setIsLoggedIn(true);
+        localStorage.setItem('token', data.token); // Save token in localStorage
+        navigate("/Minutespage");
+      } else {
+        alert(data.error || 'Registration Failed');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('An error occurred');
+    }
   };
 
   return (
