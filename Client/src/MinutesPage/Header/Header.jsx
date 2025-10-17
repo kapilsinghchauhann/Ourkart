@@ -7,11 +7,13 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartItems, isLoggedIn, handleLogout} = useCart(); // ✅ only from context
 
-  // 👇 calculate total quantity
-  const totalQuantity = cartItems.reduce(
-    (sum, item) => sum + item.quantity,
-    0
-  );
+  
+  const totalQuantity = Object.values(cartItems || {}).reduce(
+  (sum, item) => sum + (item.quantity || 0),
+  0
+);
+
+
 
   return (
     <header className="header">

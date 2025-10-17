@@ -5,6 +5,7 @@ import { useCart } from "../../CartContext";
 function TopDeals() {
   const [products, setProducts] = useState([]);
   const { cartItems, addToCart, removeFromCart } = useCart();
+  const cartArray = Object.values(cartItems);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -15,10 +16,10 @@ function TopDeals() {
     getProducts();
   }, []);
 
-  const getProductQuantity = (productId) => {
-    const item = cartItems.find((p) => p.id === productId);
-    return item ? item.quantity : 0;
-  };
+ const getProductQuantity = (id) => {
+  const item = cartArray.find(p => p.id === id);
+  return item ? item.quantity : 0;
+};
 
   return (
     <div className="heading">

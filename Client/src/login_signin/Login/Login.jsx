@@ -9,7 +9,9 @@ export default function Login() {
     password: "",
   });
 
-    const navigate = useNavigate();
+  const { setIsLoggedIn } = useCart();
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,10 +23,10 @@ export default function Login() {
   //   // Add your authentication logic here
   // };
 
-    const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", { // make sure path matches backend
+      const res = await fetch("http://localhost:8000/api/user/login", { // make sure path matches backend
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -32,20 +34,16 @@ export default function Login() {
 
       const data = await res.json();
       if (res.ok) {
-        // Save token + userId for later use
-        localStorage.setItem("userId", data.userId);
         alert("Signup successful !");
         setIsLoggedIn(true);
         localStorage.setItem('token', data.token); // Save token in localStorage
-        console.log(isLoggedIn);
-        
-        // Redirect to Minutes page
-        navigate("/MinutesPage");
+        navigate("/Minutespage");
       } else {
-        alert(data.error);
+        alert(data.error || 'Registration Failed');
       }
     } catch (err) {
       console.error(err);
+      alert('An error occurred');
     }
   };
 

@@ -6,9 +6,9 @@ const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    const handleLogout = () => {
+  const handleLogout = () => {
     setIsLoggedIn(false);
     localStorage.removeItem('token'); // Clear token from localStorage
   };
@@ -19,34 +19,67 @@ export function CartProvider({ children }) {
     }
   }, [isLoggedIn]);
 
-  const addToCart = (product) => {
-    setCartItems((prev) => {
-      const existing = prev.find((item) => item.id === product.id);
-      if (existing) {
-        return prev.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
+  const addToCart = async (product) => {
+    const itemId = product._id || product.id;
+
+    setCartItems((prev) => ({
+      ...prev,
+      [itemId]: {
+        ...product,
+        quantity: (prev[itemId]?.quantity || 0) + 1,
+      },
+    }));
+
+    if (token) {
+      try {
+        await axios.post(
+          `${url}/api/cart/add`,
+          { itemId: product._id || product.id },
+          { headers: { token } }
         );
+      } catch (error) {
+        console.error("Error adding item to cart:", error);
       }
-      return [...prev, { ...product, quantity: 1 }];
-    });
+    }
   };
 
-  const removeFromCart = (product) => {
-    setCartItems((prev) =>
-      prev
-        .map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
-  };
+const removeFromCart = async (product) => {
+  const itemId = product._id || product.id;
+
+  setCartItems((prev) => {
+    const updatedCart = { ...prev };
+
+    if (updatedCart[itemId]) {
+      if (updatedCart[itemId].quantity > 1) {
+        updatedCart[itemId] = {
+          ...updatedCart[itemId],
+          quantity: updatedCart[itemId].quantity - 1,
+        };
+      } else {
+        delete updatedCart[itemId];
+      }
+    }
+
+    return updatedCart;
+  });
+
+  if (token) {
+    try {
+      await axios.post(
+        `${url}/api/cart/remove`,
+        { itemId },
+        { headers: { token } }
+      );
+    } catch (error) {
+      console.error("Error removing item from cart:", error);
+    }
+  }
+};
+
+
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, isLoggedIn, setIsLoggedIn, handleLogout}}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, isLoggedIn, setIsLoggedIn, handleLogout }}>
       {children}
     </CartContext.Provider>
   );

@@ -30,26 +30,32 @@ const Cart = () => {
       ) : (
         <div className="cart-container">
           <h2>Your Cart</h2>
-          {cartItems.map((item) => (
-            <div key={item.id} className="cart-item">
-              <img src={item.image} alt={item.title} />
-              <div className="item-details">
-                <p>{item.title}</p>
-                <p>Quantity: {item.quantity}</p>
-                <p>Price: ${item.price}</p>
+
+          {Object.values(cartItems).length > 0 ? (
+            Object.values(cartItems).map((item) => (
+              <div key={item.id || item._id} className="cart-item">
+                <img src={item.image} alt={item.title} />
+                <div className="item-details">
+                  <p>{item.title}</p>
+                  <p>Quantity: {item.quantity}</p>
+                  <p>Price: ${item.price}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p>Your cart is empty.</p>
+          )}
 
           <div className="cart-summary">
             <h3>
               Total: $
-              {cartItems
+              {Object.values(cartItems)
                 .reduce((total, item) => total + item.price * item.quantity, 0)
                 .toFixed(2)}
             </h3>
           </div>
         </div>
+
       )}
 
       <Footer />

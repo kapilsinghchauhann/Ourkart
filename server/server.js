@@ -1,50 +1,24 @@
-import express from "express";
-import cors from "cors";
-import mongoose from "mongoose";
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const connectDB = require("./config/db.js")
+const userRouter = require("./routes/userRoute.js")
 
 const app = express();
+const port = 8000;
 
 // --- Middleware
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
-app.use(express.json());
+app.use(express.json())
+app.use(cors())
 
 // --- Connect to MongoDB
-mongoose
-  .connect("mongodb://127.0.0.1:27017/cartdb")
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("Mongo error:", err));
+connectDB();
 
-// --- Schema & model
-const cartItemSchema = new mongoose.Schema({
-  productId: Number,
-  title: String,
-  price: Number,
-  quantity: Number,
-  image: String,
-});
-const CartItem = mongoose.model("CartItem", cartItemSchema);
+// api endpoints
+app.use("/api/user", userRouter)
+// app.use("/api/cart", cartRouter)
+// app.use("/api/order", orderRouter)
 
-// --- Routes
-app.get("/api/cart", async (req, res) => {
-  const items = await CartItem.find();
-  res.json(items);
-});
+app.get('/', (req, res) => res.send('All API endpoint is working !' + port));
 
-app.post("/api/cart", async (req, res) => {
-  const { productId, title, price, image } = req.body;
-  let item = await CartItem.findOne({ productId });
-  if (item) {
-    item.quantity += 1;
-    await item.save();
-  } else {
-    item = await CartItem.create({ productId, title, price, image, quantity: 1 });
-  }
-  res.json(item);
-});
-
-app.delete("/api/cart/:id", async (req, res) => {
-  await CartItem.findByIdAndDelete(req.params.id);
-  res.json({ success: true });
-});
-
-app.listen(5000, () => console.log("API running at http://localhost:5000"));
+app.listen(port, () => console.log(`Listening on port ${port}!`))
